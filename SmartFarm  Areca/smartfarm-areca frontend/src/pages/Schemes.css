@@ -1,0 +1,160 @@
+/* Main container */
+.schemes-container {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Heading */
+.schemes-container h2 {
+  color: #2c3e50;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Description text */
+.schemes-container p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Schemes list */
+.schemes-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* Scheme buttons */
+.scheme-button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+}
+
+.scheme-button:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scheme-button.active {
+  background-color: #1565c0;
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Scheme details section */
+.scheme-details {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Section styling */
+.section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #1976d2;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+/* Headings inside details */
+.scheme-details h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #1976d2;
+  padding-bottom: 10px;
+}
+
+.scheme-details h3 {
+  color: #1976d2;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Paragraph text */
+.scheme-details p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Unordered list styles */
+.scheme-details ul {
+  list-style-type: none;
+  padding-left: 20px;
+  color: #555;
+}
+
+.scheme-details ul li {
+  margin-bottom: 10px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.scheme-details ul li:before {
+  content: "•";
+  color: #1976d2;
+  font-weight: bold;
+  position: absolute;
+  left: -20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .scheme-button {
+    min-width: 150px;
+    padding: 10px 20px;
+  }
+
+  .scheme-details {
+    padding: 20px;
+  }
+}
+
+/* Animation for content */
+.scheme-details {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  

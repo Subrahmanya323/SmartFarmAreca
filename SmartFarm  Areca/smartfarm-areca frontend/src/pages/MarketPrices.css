@@ -1,0 +1,48 @@
+.market-prices-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.market-prices-table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.market-prices-table th, .market-prices-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.market-prices-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.market-prices-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.no-data {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+}
+
+.search-input {
+  width: 50%;
+  padding: 10px;
+  margin: 10px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0px 0px 8px rgba(76, 175, 80, 0.6);
+}

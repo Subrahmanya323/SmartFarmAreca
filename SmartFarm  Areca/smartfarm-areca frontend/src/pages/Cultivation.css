@@ -1,0 +1,255 @@
+/* Main container */
+.cultivation-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cultivation-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.cultivation-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cultivation-header .subtitle {
+  font-size: 1.2rem;
+  color: #34495e;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.cultivation-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideUp 0.8s ease-out;
+}
+
+.sections-sidebar {
+  width: 300px;
+  background: #f8f9fa;
+  padding: 2rem;
+  border-right: 1px solid #e9ecef;
+}
+
+.section-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  background: white;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 1rem;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section-button:hover {
+  transform: translateX(5px);
+  background: #e3f2fd;
+  color: #19d23e;
+}
+
+.section-button.active {
+  background: #06be37;
+  color: white;
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.2);
+}
+
+.section-details {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.selected-section {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.selected-section h2 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  border-bottom: 2px solid #e3f2fd;
+  padding-bottom: 0.5rem;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.subsection {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.subsection h3 {
+  color: #1976d2;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.subsection ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.subsection li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.subsection li:before {
+  content: "•";
+  color: #1976d2;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.varieties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.variety-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.variety-card:hover {
+  transform: translateY(-5px);
+}
+
+.variety-card h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.variety-card p {
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.schedule-table {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.schedule-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.schedule-table th {
+  background: #1976d2;
+  color: white;
+  font-weight: 500;
+}
+
+.schedule-table tr:hover {
+  background: #f8f9fa;
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 3rem;
+  color: #2c3e50;
+}
+
+.welcome-message h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.welcome-message p {
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .cultivation-content {
+    flex-direction: column;
+  }
+
+  .sections-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .cultivation-header h1 {
+    font-size: 2rem;
+  }
+
+  .cultivation-header .subtitle {
+    font-size: 1rem;
+  }
+
+  .selected-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .varieties-grid {
+    grid-template-columns: 1fr;
+  }
+}

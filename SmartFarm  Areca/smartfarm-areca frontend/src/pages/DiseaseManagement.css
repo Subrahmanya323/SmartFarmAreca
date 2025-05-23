@@ -1,0 +1,153 @@
+/* Main container */
+.disease-container {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Heading */
+.disease-container h2 {
+  color: #2c3e50;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Description text */
+.disease-container p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Diseases list */
+.diseases-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* Disease buttons */
+.disease-button {
+  background-color: #2fd353;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+}
+
+.disease-button:hover {
+  background-color: #b71c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.disease-button.active {
+  background-color: #b71c1c;
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Disease details section */
+.disease-details {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Section styling */
+.section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #d32f2f;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+/* Headings inside details */
+.disease-details h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #d32f2f;
+  padding-bottom: 10px;
+}
+
+.disease-details h3 {
+  color: #d32f2f;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Unordered list styles */
+.disease-details ul {
+  list-style-type: none;
+  padding-left: 20px;
+  color: #555;
+}
+
+.disease-details ul li {
+  margin-bottom: 10px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.disease-details ul li:before {
+  content: "•";
+  color: #d32f2f;
+  font-weight: bold;
+  position: absolute;
+  left: -20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .disease-button {
+    min-width: 150px;
+    padding: 10px 20px;
+  }
+
+  .disease-details {
+    padding: 20px;
+  }
+}
+
+/* Animation for content */
+.disease-details {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  
