@@ -1,11 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { fetchContent } from "../services/contentService";
 import { useLanguage } from "../context/LanguageContext";
+import cultivationImage from "../assets/Cultivation_image.png";
 import "./Cultivation.css";
 
 const Cultivation = () => {
-  const { translations } = useLanguage();
+  const { translations, language } = useLanguage();
   const [selectedSection, setSelectedSection] = useState(null);
+  const [cultivationData, setCultivationData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+
+    const loadCultivationData = async () => {
+
+      try {
+
+        setLoading(true);
+
+        const response =
+          await fetchContent(
+            "cultivation",
+            language
+          );
+
+        if(response.length > 0) {
+
+          const backendData =
+            response[0];
+
+          backendData.content =
+            JSON.parse(
+              backendData.content
+            );
+
+          setCultivationData(
+            backendData
+          );
+        }
+
+      } catch(error) {
+
+        console.error(
+          "Cultivation fetch error:",
+          error
+        );
+
+      } finally {
+
+        setLoading(false);
+
+      }
+    };
+
+    loadCultivationData();
+
+  }, [language]);
+
+  if(loading) {
+
+    return (
+      <div className="cultivation-container">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+
+  if(!cultivationData) {
+
+    return (
+      <div className="cultivation-container">
+        <h2>No cultivation data found.</h2>
+      </div>
+    );
+  }
   const sections = [
     'landPreparation',
     'varietalDescription',
@@ -17,7 +85,7 @@ const Cultivation = () => {
   ];
 
   const renderContent = (section) => {
-    const content = translations.cultivation.sections[section].content;
+    const content = cultivationData.content.sections[section].content;
     
     switch (section) {
       case 'landPreparation':
@@ -198,8 +266,8 @@ const Cultivation = () => {
   return (
     <div className="cultivation-container">
       <div className="cultivation-header">
-        <h1>{translations.cultivation.title}</h1>
-        <p className="subtitle">{translations.cultivation.subtitle}</p>
+        <h1>{cultivationData.title}</h1>
+        <p className="subtitle">{cultivationData.subtitle}</p>
       </div>
 
       <div className="cultivation-content">
@@ -210,7 +278,7 @@ const Cultivation = () => {
               className={`section-button ${selectedSection === section ? 'active' : ''}`}
               onClick={() => setSelectedSection(section)}
             >
-              {translations.cultivation.sections[section].title}
+              {cultivationData.content.sections[section].title}
           </button>
         ))}
       </div>
@@ -218,13 +286,18 @@ const Cultivation = () => {
         <div className="section-details">
           {selectedSection ? (
             <div className="selected-section">
-              <h2>{translations.cultivation.sections[selectedSection].title}</h2>
+              <h2>{cultivationData.content.sections[selectedSection].title}</h2>
               {renderContent(selectedSection)}
             </div>
           ) : (
             <div className="welcome-message">
-              <h2>Welcome to the Cultivation Guide</h2>
-              <p>Select a section from the sidebar to view detailed information about arecanut cultivation.</p>
+              <h2>{cultivationData.title}</h2>
+              <p>{cultivationData.subtitle}</p>
+              <img
+                src={cultivationImage}
+                alt="Cultivation Guide"
+                className="cultivation-welcome-image"
+              />
             </div>
           )}
         </div>

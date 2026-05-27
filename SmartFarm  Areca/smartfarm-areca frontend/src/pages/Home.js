@@ -55,7 +55,7 @@ function Home() {
             <li>New cultivation techniques</li>
             <li>Market price trends</li>
             <li>Government scheme announcements</li>
-            <li>Weather alerts</li>
+            <li>Disease diagnosis and solutions</li>
           </ul>
         </div>
       </div>
