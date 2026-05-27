@@ -15,38 +15,82 @@ import java.util.Map;
 @Service
 public class MarketPriceScraperService {
 
-    private static final String URL = "https://agriplus.in/prices/arecanut-betelnut-supari/karnataka";
+    private static final String URL =
+            "https://agriplus.in/prices/arecanut-betelnut-supari/karnataka";
 
     public List<Map<String, String>> fetchMarketPrices() {
+
         List<Map<String, String>> marketPrices = new ArrayList<>();
 
         try {
-            Document doc = Jsoup.connect(URL).get();
-            Elements tableRows = doc.select("table tbody tr");
 
-            for (Element row : tableRows) {
-                Elements columns = row.select("td");
+            Document doc = Jsoup.connect(URL)
+                    .userAgent(
+                            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36")
+                    .header("Accept-Language", "en-US,en;q=0.9")
+                    .header("Cache-Control", "no-cache")
+                    .timeout(30000)
+                    .ignoreContentType(true)
+                    .get();
 
-                if (columns.size() >= 9) {
-                    Map<String, String> priceData = new LinkedHashMap<>();
-                    priceData.put("SL NO.", columns.get(0).text());
-                    priceData.put("State", columns.get(1).text());
-                    priceData.put("District", columns.get(2).text());
-                    priceData.put("Market", columns.get(3).text());
-                    priceData.put("Commodity", columns.get(4).text());
-                    priceData.put("Variety", columns.get(5).text());
-                    priceData.put("Min Price", columns.get(6).text());
-                    priceData.put("Max Price", columns.get(7).text());
-                    priceData.put("Modal Price", columns.get(8).text());
-                    priceData.put("Price Date", columns.get(9).text());
+            // Debugging
+            System.out.println("Page Title: " + doc.title());
 
-                    marketPrices.add(priceData);
-                }
+            Elements rows = doc.select("table tbody tr");
+
+            if (rows.isEmpty()) {
+                rows = doc.select("table tr");
             }
+
+            for (Element row : rows) {
+
+                Elements cols = row.select("td");
+
+                // Skip invalid rows
+                if (cols.size() < 9) {
+                    continue;
+                }
+
+                Map<String, String> data = new LinkedHashMap<>();
+
+                data.put("SL NO.", getColumn(cols, 0));
+                data.put("State", getColumn(cols, 1));
+                data.put("District", getColumn(cols, 2));
+                data.put("Market", getColumn(cols, 3));
+                data.put("Commodity", getColumn(cols, 4));
+                data.put("Variety", getColumn(cols, 5));
+                data.put("Min Price", getColumn(cols, 6));
+                data.put("Max Price", getColumn(cols, 7));
+                data.put("Modal Price", getColumn(cols, 8));
+
+                // Some rows may not contain date
+                data.put("Price Date",
+                        cols.size() > 9 ? getColumn(cols, 9) : "N/A");
+
+                marketPrices.add(data);
+            }
+
+            if (marketPrices.isEmpty()) {
+                throw new RuntimeException("No market price data found.");
+            }
+
+            return marketPrices;
+
         } catch (IOException e) {
-            throw new RuntimeException("Error fetching market prices: " + e.getMessage());
+
+            e.printStackTrace();
+
+            throw new RuntimeException(
+                    "Failed to fetch market prices: " + e.getMessage());
+        }
+    }
+
+    private String getColumn(Elements cols, int index) {
+
+        if (index >= cols.size()) {
+            return "N/A";
         }
 
-        return marketPrices;
+        return cols.get(index).text().trim();
     }
 }

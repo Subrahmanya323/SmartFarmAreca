@@ -22,11 +22,7 @@ public class MarketPrice {
     @Column(nullable = false)
     private Double price;
     
-    public MarketPrice() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Long getId() {
+    public Long getId() {
 		return id;
 	}
 
