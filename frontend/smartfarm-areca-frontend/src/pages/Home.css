@@ -1,0 +1,347 @@
+/* MAIN CONTAINER */
+.home-container {
+
+  min-height: 100vh;
+
+  padding: 4rem 2rem;
+
+  position: relative;
+
+  overflow: hidden;
+
+  color: #ecfdf5;
+}
+
+/* HERO SECTION */
+.hero-section {
+
+  text-align: center;
+
+  margin-bottom: 5rem;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* TOP SMALL BADGE */
+.hero-section::before {
+
+  content: "SMARTFARM ARECA";
+
+  display: inline-block;
+
+  margin-bottom: 2rem;
+
+  padding: 0.6rem 1.5rem;
+
+  border-radius: 30px;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 3px;
+
+  color: #f9c74f;
+
+  border:
+    1px solid rgba(249,199,79,0.3);
+
+  background:
+    rgba(255,255,255,0.03);
+
+  backdrop-filter: blur(10px);
+}
+
+/* HERO TITLE */
+.hero-section h1 {
+
+  font-size: 4rem;
+
+  font-weight: 700;
+
+  margin-bottom: 1.5rem;
+
+  line-height: 1.2;
+
+  color: #f4fff7;
+}
+
+/* HIGHLIGHT */
+.hero-section h1 span {
+  color: #00e676;
+}
+
+/* SUBTITLE */
+.hero-section .subtitle {
+
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  color: #b7c9bd;
+
+  font-size: 1.2rem;
+
+  line-height: 1.8;
+}
+
+/* FEATURE GRID */
+.features-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 2rem;
+
+  max-width: 1300px;
+
+  margin: 0 auto 4rem auto;
+
+  position: relative;
+
+  z-index: 1;
+}
+
+/* FEATURE CARD */
+.feature-card {
+
+  background:
+    rgba(7, 40, 25, 0.75);
+
+  border:
+    1px solid rgba(0,255,128,0.08);
+
+  border-radius: 24px;
+
+  padding: 2.5rem;
+
+  min-height: 240px;
+
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.25);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* CARD HOVER */
+.feature-card:hover {
+
+  transform:
+    translateY(-10px);
+
+  border:
+    1px solid rgba(0,255,128,0.22);
+
+  box-shadow:
+    0 0 30px rgba(0,255,128,0.12);
+}
+
+/* TOP GLOW */
+.feature-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  background:
+    radial-gradient(
+      rgba(0,255,128,0.08),
+      transparent 70%
+    );
+
+  top: -70px;
+  right: -70px;
+}
+
+/* ICON BOX */
+.feature-icon {
+
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  font-size: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+/* CARD TITLE */
+.feature-card h3 {
+
+  font-size: 1.8rem;
+
+  margin-bottom: 1rem;
+
+  color: #f4fff7;
+}
+
+/* CARD TEXT */
+.feature-card p {
+
+  color: #b7c9bd;
+
+  line-height: 1.8;
+
+  font-size: 1rem;
+}
+
+/* INFO SECTION */
+.info-section {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(350px, 1fr));
+
+  gap: 2rem;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* INFO CARD */
+.info-card {
+
+  background:
+    rgba(7, 40, 25, 0.75);
+
+  border:
+    1px solid rgba(0,255,128,0.08);
+
+  border-radius: 24px;
+
+  padding: 2.5rem;
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.25);
+
+  transition: 0.3s ease;
+}
+
+/* HOVER */
+.info-card:hover {
+
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 0 25px rgba(0,255,128,0.1);
+}
+
+/* TITLE */
+.info-card h3 {
+
+  font-size: 1.8rem;
+
+  margin-bottom: 2rem;
+
+  color: #f4fff7;
+
+  position: relative;
+}
+
+/* TITLE LINE */
+.info-card h3::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: -12px;
+  top: 10px;
+
+  width: 4px;
+  height: 24px;
+
+  background: #00e676;
+
+  border-radius: 20px;
+}
+
+/* LIST */
+.info-card ul {
+
+  list-style: none;
+
+  padding: 0;
+}
+
+/* ITEMS */
+.info-card ul li {
+
+  position: relative;
+
+  padding: 1rem 0 1rem 2rem;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.06);
+
+  color: #b7c9bd;
+
+  line-height: 1.6;
+}
+
+/* CHECK */
+.info-card ul li::before {
+
+  content: "✓";
+
+  position: absolute;
+
+  left: 0;
+
+  color: #00e676;
+
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .hero-section h1 {
+    font-size: 2.7rem;
+  }
+
+  .hero-section .subtitle {
+    font-size: 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-section {
+    grid-template-columns: 1fr;
+  }
+}

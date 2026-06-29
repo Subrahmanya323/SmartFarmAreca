@@ -1,0 +1,17 @@
+# Ignore Eclipse workspace
+.metadata/
+
+# Frontend
+frontend/**/node_modules/
+
+# Backend
+backend/**/target/
+
+# VS Code
+.vscode/
+
+# Log files
+*.log
+
+# Windows
+Thumbs.db

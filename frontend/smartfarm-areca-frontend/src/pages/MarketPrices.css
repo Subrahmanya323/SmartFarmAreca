@@ -1,0 +1,224 @@
+/* MAIN CONTAINER */
+.market-prices-container {
+  min-height: 100vh;
+
+  padding: 2rem;
+
+  color: var(--light-text);
+
+  font-family: 'Poppins', sans-serif;
+}
+
+/* PAGE TITLE */
+.market-prices-container h2 {
+  text-align: center;
+
+  font-size: 2.8rem;
+
+  font-weight: 700;
+
+  margin-bottom: 2rem;
+
+  color: var(--light-text);
+
+  position: relative;
+}
+
+/* SEARCH INPUT */
+.search-input {
+  width: 100%;
+  max-width: 900px;
+
+  padding: 1rem 1.2rem;
+
+  margin: 0 auto 2.5rem auto;
+
+  display: block;
+
+  border-radius: 14px;
+
+  border:
+    1px solid rgba(0,255,128,0.12);
+
+  background:
+    rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(10px);
+
+  color: var(--light-text);
+
+  font-size: 1rem;
+
+  transition: all 0.3s ease;
+}
+
+/* PLACEHOLDER */
+.search-input::placeholder {
+  color: var(--muted-text);
+}
+
+/* INPUT FOCUS */
+.search-input:focus {
+  outline: none;
+
+  border-color:
+    rgba(0,255,128,0.4);
+
+  box-shadow:
+    0 0 20px rgba(0,255,128,0.12);
+}
+
+/* TABLE WRAPPER */
+.market-prices-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background:
+    rgba(7, 40, 25, 0.72);
+
+  backdrop-filter: blur(12px);
+
+  border:
+    1px solid rgba(0,255,128,0.08);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.35);
+}
+
+/* TABLE HEADER */
+.market-prices-table thead {
+  background:
+    linear-gradient(
+      135deg,
+      #00c853,
+      #009624
+    );
+}
+
+/* HEADER CELLS */
+.market-prices-table th {
+  padding: 1rem;
+
+  color: white;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  text-align: center;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+/* TABLE DATA */
+.market-prices-table td {
+  padding: 1rem;
+
+  text-align: center;
+
+  color: var(--muted-text);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  transition: all 0.25s ease;
+}
+
+/* ROW BACKGROUND */
+.market-prices-table tbody tr {
+  background:
+    rgba(255,255,255,0.02);
+
+  transition: all 0.3s ease;
+}
+
+/* ALTERNATE ROW */
+.market-prices-table tbody tr:nth-child(even) {
+  background:
+    rgba(255,255,255,0.035);
+}
+
+/* HOVER EFFECT */
+.market-prices-table tbody tr:hover {
+  background:
+    rgba(0,255,128,0.06);
+
+  transform: scale(1.002);
+}
+
+/* PRICE HIGHLIGHT */
+.market-prices-table td:nth-child(7),
+.market-prices-table td:nth-child(8),
+.market-prices-table td:nth-child(9) {
+  color: #4ade80;
+
+  font-weight: 600;
+}
+
+/* LOADING TEXT */
+.market-prices-container p {
+  text-align: center;
+
+  color: var(--muted-text);
+
+  font-size: 1.1rem;
+}
+
+/* ERROR */
+.error-message {
+  color: #ff6b6b !important;
+
+  font-weight: 600;
+}
+
+/* NO DATA */
+.no-data {
+  text-align: center;
+
+  font-size: 1.1rem;
+
+  color: #ff6b6b;
+
+  padding: 2rem;
+}
+
+/* RESPONSIVE TABLE */
+@media (max-width: 1200px) {
+
+  .market-prices-container {
+    overflow-x: auto;
+  }
+
+  .market-prices-table {
+    min-width: 1100px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .market-prices-container {
+    padding: 1rem;
+  }
+
+  .market-prices-container h2 {
+    font-size: 2rem;
+  }
+
+  .search-input {
+    font-size: 0.95rem;
+  }
+
+  .market-prices-table th,
+  .market-prices-table td {
+    padding: 0.8rem;
+
+    font-size: 0.9rem;
+  }
+}
